@@ -1,0 +1,228 @@
+
+function approve(address varg0, uint256 varg1) public {
+  require(!msg.value);
+  v1470x5b4 = 0x20;
+  v1470x5ec = address(varg0);
+  v1470x5f1 = 0x20;
+  MEM[v1470x5f1] = keccak256(MEM[0x0 : 0x40]);
+  stor_allowance[v1470x5ec] = varg1;
+  v1470x651 = MEM[0x40];
+  MEM[v1470x651] = varg1;
+  log(MEM[0x40], (v1470x651 + 32 - MEM[0x40]), 0x8c5be1e5ebec7d5bd14f71427d1e84f3dd0314c0f7b2291e5b200ac8c7c3b925, address(msg.sender), address(varg0));
+  v1470x664 = 0x1;
+  v1470x18a = MEM[0x40];
+  MEM[v1470x18a] = v1470x664;
+  return(MEM[MEM[0x40]:MEM[0x40] + (v1470x18a + 32 - MEM[0x40])]);
+}
+
+function totalSupply() public {
+  require(!msg.value);
+  v1a10x1b7 = MEM[0x40];
+  MEM[v1a10x1b7] = BALANCE(address(this));
+  return(MEM[MEM[0x40]:MEM[0x40] + (v1a10x1b7 + 32 - MEM[0x40])]);
+}
+
+function transferFrom(address varg0, address varg1, uint256 varg2) public {
+  require(!msg.value);
+  v228_0, v228_1 = transfer_impl(varg2, varg1, varg0, 0x229);
+  v1ca0x22c = MEM[0x40];
+  v1ca0x22f = !v1ca0x228_0;
+  MEM[v1ca0x22c] = v1ca0x228_0;
+  return(MEM[MEM[0x40]:MEM[0x40] + (v1ca0x22c + 32 - MEM[0x40])]);
+}
+
+function withdraw(uint256 varg0) public {
+  require(!msg.value);
+  va0b = address(msg.sender);
+  va10 = 0x20;
+  require((stor_balanceOf[va0b][0] >= varg0));
+  v2430xa59 = address(msg.sender);
+  v2430xa5e = 0x20;
+  v2430xa6d = (stor_balanceOf[v2430xa59][0] - v2430x256);
+  stor_balanceOf[v2430xa59] = v2430xa6d;
+  v2430xa92 = !v2430x256;
+  v2430xaa4 = address(msg.sender).call(MEM[MEM[0x40] : MEM[0x40] + (MEM[0x40] - MEM[0x40])]).value(v2430x256).gas(2300*v2430xa92);
+  require(v2430xaa4);
+  v2430xaf0 = MEM[0x40];
+  MEM[v2430xaf0] = v2430x256;
+  log(MEM[0x40], (v2430xaf0 + 32 - MEM[0x40]), 0x7fcf532c15f0a6db0bd6d0e038bea71d30d808c7d98cb3bf7268a95bf5081b65, address(msg.sender));
+  exit();
+}
+
+function decimals() public {
+  require(!msg.value);
+  v2660xb15 = (0xff & stor_decimals >> 0);
+  v2660x27c = MEM[0x40];
+  MEM[v2660x27c] = (0xff & (0xff & v2660xb15));
+  return(MEM[MEM[0x40]:MEM[0x40] + (v2660x27c + 32 - MEM[0x40])]);
+}
+
+function balanceOf(address varg0) public {
+  require(!msg.value);
+  v2950x2cf = MEM[0x40];
+  MEM[v2950x2cf] = stor_balanceOf[varg0][0];
+  return(MEM[MEM[0x40]:MEM[0x40] + (v2950x2cf + 32 - MEM[0x40])]);
+}
+
+function symbol() public {
+  require(!msg.value);
+  vb45 = ((!(0x1 & stor_symbol.length) << 8 - 0x1) & stor_symbol.length) >> 1;
+  vb55 = MEM[0x40];
+  MEM[0x40] = (vb55 + (0x20 + vb45 + 31 >> 5 << 5));
+  MEM[vb55] = vb45;
+  vba9_0 = vb55 + 32;
+  if (((!(0x1 & stor_symbol.length) << 8 - 0x1) & stor_symbol.length) >> 1) {
+    if ((0x1f < ((!(0x1 & stor_symbol.length) << 8 - 0x1) & stor_symbol.length) >> 1)) {
+      while (true) {
+        MEM[vba9_0] = STORAGE[vba9_1];
+        vba9_1 = vba9_1 + 1;
+        vba9_0 = vba9_0 + 32;
+        if (((vba9_0 + ((!(0x1 & stor_symbol.length) << 8 - 0x1) & stor_symbol.length) >> 1) > vba9_0)) break;
+      }
+    } else {
+      v2e20xb8d = STORAGE[v2e20xb31];
+      MEM[v2e20xb65] = v2e20xb8d >> 8 << 8;
+      GOTO 0xbc6;
+    }
+  }
+  v2e20x2f8 = MEM[0x40];
+  v2e20x2fd = v2e20x2f8 + 32;
+  MEM[v2e20x2f8] = -v2e20x2f8 + v2e20x2fd;
+  v2e20x306 = MEM[v2e20xb55];
+  MEM[v2e20x2fd] = v2e20x306;
+  v2e20x30f = MEM[v2e20xb55];
+  v2e20x313 = v2e20xb55 + 32;
+  v3230x2e2_0 = 0x0;
+  while (true) {
+    if ((v3230x2e2_0 >= v2e20x30f)) break;
+    MEM[v2e20x2fd + v3230x2e2_0 + 32] = MEM[v2e20x313 + v3230x2e2_0];
+    v3230x2e2_0 = v3230x2e2_0 + 32;
+    GOTO 0x31a;
+  }
+  v3620x2e2_1 = v2e20x2fd + v2e20x30f + 32;
+  if ((0x1f & v2e20x30f)) {
+    v2e20x34b = (v3620x2e2_1 - (0x1f & v2e20x30f));
+    MEM[v2e20x34b] = (~((0x100 ** (0x20 - (0x1f & v2e20x30f))) - 0x1) & MEM[v2e20x34b]);
+    v3620x2e2_1 = v2e20x34b + 32;
+  }
+  return(MEM[MEM[0x40]:MEM[0x40] + (v3620x2e2_1 - MEM[0x40])]);
+}
+
+function transfer(address varg0, uint256 varg1) public {
+  require(!msg.value);
+  vbda_0, vbda_1 = transfer_impl(varg1, varg0, msg.sender, 0xbdb);
+}
+
+function deposit() public {
+  v3ca0x472 = address(msg.sender);
+  v3ca0x477 = 0x20;
+  stor_balanceOf[v3ca0x472] = (stor_balanceOf[v3ca0x472][0] + msg.value);
+  v3ca0x4c9 = MEM[0x40];
+  MEM[v3ca0x4c9] = msg.value;
+  log(MEM[0x40], (v3ca0x4c9 + 32 - MEM[0x40]), 0xe1fffcc4923d04b559f4d29a8bfc6cda04eb5b0d3c460751c2402c5c5cc9109c, address(msg.sender));
+  GOTO 0x3d2;
+  exit();
+  exit();
+}
+
+function allowance(address varg0, address varg1) public {
+  require(!msg.value);
+  MEM[0x20] = keccak256(MEM[0x0 : 0x40]);
+  v3d40x42d = MEM[0x40];
+  MEM[v3d40x42d] = stor_allowance[varg1][0];
+  return(MEM[MEM[0x40]:MEM[0x40] + (v3d40x42d + 32 - MEM[0x40])]);
+}
+
+function transfer_impl(uint256 vg0, uint256 vg1, uint256 vg2, uint256 vg3) private {
+  v6aa = address(vg2);
+  v6c0 = address(v6aa);
+  v6c5 = 0x20;
+  v6d0 = (stor_balanceOf[v6c0][0] < vg0);
+  require((stor_balanceOf[v6c0][0] >= vg0));
+  v70a = address(vg2);
+  v7b4_0 = (v70a != address(msg.sender));
+  if (v7b4_0) {
+    v74f = address(vg2);
+    v76a = 0x20;
+    v7a2 = address(msg.sender);
+    v7a7 = 0x20;
+    MEM[v7a7] = keccak256(MEM[0x0 : 0x40]);
+    v7b4_0 = (stor_allowance[v7a2][0] != 0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff);
+  }
+  if (v7b4_0) {
+    v7d5 = address(vg2);
+    v7f0 = 0x20;
+    v828 = address(msg.sender);
+    v82d = 0x20;
+    MEM[v82d] = keccak256(MEM[0x0 : 0x40]);
+    v838 = (stor_allowance[v828][0] < vg0);
+    require((stor_allowance[v828][0] >= vg0));
+    v68c0x860 = address(v68carg2);
+    v68c0x87b = 0x20;
+    v68c0x8b3 = address(msg.sender);
+    v68c0x8b8 = 0x20;
+    MEM[v68c0x8b8] = keccak256(MEM[0x0 : 0x40]);
+    v68c0x8c7 = (stor_allowance[v68c0x8b3][0] - v68carg0);
+    stor_allowance[v68c0x8b3] = v68c0x8c7;
+  }
+  v68c0x8eb = address(v68carg2);
+  v68c0x901 = address(v68c0x8eb);
+  v68c0x906 = 0x20;
+  v68c0x915 = (stor_balanceOf[v68c0x901][0] - v68carg0);
+  stor_balanceOf[v68c0x901] = v68c0x915;
+  v68c0x938 = address(v68carg1);
+  v68c0x94e = address(v68c0x938);
+  v68c0x953 = 0x20;
+  v68c0x962 = (stor_balanceOf[v68c0x94e][0] + v68carg0);
+  stor_balanceOf[v68c0x94e] = v68c0x962;
+  v68c0x980 = address(v68carg1);
+  v68c0x997 = address(v68carg2);
+  v68c0x9bc = MEM[0x40];
+  MEM[v68c0x9bc] = v68carg0;
+  log(MEM[0x40], (v68c0x9bc + 32 - MEM[0x40]), 0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef, v68c0x997, v68c0x980);
+  return(0x1) // to v68carg3;
+}
+
+function name() public {
+  require(!msg.value);
+  v4f2 = ((!(0x1 & stor_name.length) << 8 - 0x1) & stor_name.length) >> 1;
+  v502 = MEM[0x40];
+  MEM[0x40] = (v502 + (0x20 + v4f2 + 31 >> 5 << 5));
+  MEM[v502] = v4f2;
+  v556_0 = v502 + 32;
+  if (((!(0x1 & stor_name.length) << 8 - 0x1) & stor_name.length) >> 1) {
+    if ((0x1f < ((!(0x1 & stor_name.length) << 8 - 0x1) & stor_name.length) >> 1)) {
+      while (true) {
+        MEM[v556_0] = STORAGE[v556_1];
+        v556_1 = v556_1 + 1;
+        v556_0 = v556_0 + 32;
+        if (((v556_0 + ((!(0x1 & stor_name.length) << 8 - 0x1) & stor_name.length) >> 1) > v556_0)) break;
+      }
+    } else {
+      vb90x53a = STORAGE[vb90x4de];
+      MEM[vb90x512] = vb90x53a >> 8 << 8;
+      GOTO 0x573;
+    }
+  }
+  vb90xcf = MEM[0x40];
+  vb90xd4 = vb90xcf + 32;
+  MEM[vb90xcf] = -vb90xcf + vb90xd4;
+  vb90xdd = MEM[vb90x502];
+  MEM[vb90xd4] = vb90xdd;
+  vb90xe6 = MEM[vb90x502];
+  vb90xea = vb90x502 + 32;
+  vfa0xb9_0 = 0x0;
+  while (true) {
+    if ((vfa0xb9_0 >= vb90xe6)) break;
+    MEM[vb90xd4 + vfa0xb9_0 + 32] = MEM[vb90xea + vfa0xb9_0];
+    vfa0xb9_0 = vfa0xb9_0 + 32;
+    GOTO 0xf1;
+  }
+  v1390xb9_1 = vb90xd4 + vb90xe6 + 32;
+  if ((0x1f & vb90xe6)) {
+    vb90x122 = (v1390xb9_1 - (0x1f & vb90xe6));
+    MEM[vb90x122] = (~((0x100 ** (0x20 - (0x1f & vb90xe6))) - 0x1) & MEM[vb90x122]);
+    v1390xb9_1 = vb90x122 + 32;
+  }
+  return(MEM[MEM[0x40]:MEM[0x40] + (v1390xb9_1 - MEM[0x40])]);
+}
